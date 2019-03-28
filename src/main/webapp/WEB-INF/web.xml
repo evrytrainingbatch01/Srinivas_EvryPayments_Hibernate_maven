@@ -16,6 +16,24 @@
   	<description></description>
   	<servlet-class>com.evrydemo.controller.RegisterServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>AddMoney</servlet-name>
+  	<display-name>AddMoney</display-name>
+  	<description></description>
+  	<servlet-class>com.evrydemo.controller.AddMoney</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>CheckBalance</servlet-name>
+  	<display-name>CheckBalance</display-name>
+  	<description></description>
+  	<servlet-class>com.evrydemo.controller.CheckBalance</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>TransferMoney</servlet-name>
+  	<display-name>TransferMoney</display-name>
+  	<description></description>
+  	<servlet-class>com.evrydemo.controller.TransferMoney</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>LoginServlet</servlet-name>
   	<url-pattern>/LoginServlet</url-pattern>
@@ -24,6 +42,18 @@
   	<servlet-name>RegisterServlet</servlet-name>
   	<url-pattern>/RegisterServlet</url-pattern>
   	
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AddMoney</servlet-name>
+  	<url-pattern>/AddMoney</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>CheckBalance</servlet-name>
+  	<url-pattern>/CheckBalance</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>TransferMoney</servlet-name>
+  	<url-pattern>/TransferMoney</url-pattern>
   </servlet-mapping>
   <welcome-file-list>
         <welcome-file>login.jsp</welcome-file>

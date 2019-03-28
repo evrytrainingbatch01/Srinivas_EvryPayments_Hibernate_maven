@@ -2,16 +2,25 @@
 package com.evrydemo.model;
 
 import java.io.Serializable;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="customer")
 public class Customer implements Serializable {
     
-    @Id @GeneratedValue
+    @Id 
+    @GeneratedValue (strategy= GenerationType.SEQUENCE, generator="custSeqGen")
+	@SequenceGenerator(name = "custSeqGen", sequenceName = "CUST_SEQ_GEN") 
     private Long id;
     private String customerName;
     private String age;
@@ -19,6 +28,11 @@ public class Customer implements Serializable {
     private String address;
     private String password;
     private String mobileno;
+    
+    
+    @OneToMany(cascade=CascadeType.ALL)
+    @JoinColumn(name="UID")
+    private Set<Transaction> transactions;
 
     public Customer() {
     }

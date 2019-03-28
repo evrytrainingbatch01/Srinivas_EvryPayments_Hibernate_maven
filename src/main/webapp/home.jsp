@@ -13,46 +13,29 @@
 <body>
 	<center>
 		<div id="container">
-			<h1>Result Page</h1>
-			<b>This is Sample Result Page</b><br />
+			<h1>Transaction Management</h1>
 			<%=new Date()%></br>
 			<%
 				Customer customer = (Customer) session.getAttribute("customer");
 			%>
-			<b>Welcome <%=customer.getCustomerName()%></b>
-			<br /> <a href="logout.jsp">Logout</a>
-			</p>
-
-			<table>
-				<thead>
-					<tr>
-						<th>Customer Name</th>
-						<th>Age</th>
-						<th>Email</th>
-						<th>Address</th>
-						<th>Mobile No</th>
-					</tr>
-				</thead>
-				<tbody>
-					<%
-						LoginService loginService = new LoginService();
-						List<Customer> list = loginService.getListOfCustomers();
-						for (Customer u : list) {
-							%>
-					<tr>
-						<td><%=u.getCustomerName()%></td>
-						<td><%=u.getAge()%></td>
-						<td><%=u.getEmail()%></td>
-						<td><%=u.getAddress()%></td>
-						<td><%=u.getMobileno()%></td>
-					</tr>
-					<%
-						}
-					%>
-				
-				<tbody>
-			</table>
+			<b>Welcome <%=customer.getCustomerName()%></b><br />
+			<h4>Please Select the operation you want to do</h4>
 			<br />
+			<form action="./addmoney.jsp" method="GET">
+				<input type="submit" class="button" name="addmoney"
+					value="Add Money">
+			</form></br></br>
+			<form action="./checkbalance.jsp" method="GET">
+				<input type="submit" class="button" name="checkbalance"
+					value="Check Balance">
+			</form></br></br>
+			<form action="./transfer.jsp" method="GET">
+				<input type="submit" class="button" name="transfer"
+					value="Transfer Money">
+			</form></br></br>
+
+			<br /> <a href="logout.jsp">Logout</a>
+
 		</div>
 	</center>
 </body>

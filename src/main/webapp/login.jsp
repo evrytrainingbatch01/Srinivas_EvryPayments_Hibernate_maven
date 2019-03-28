@@ -26,7 +26,7 @@
 					<input name="password" type="password" class="form-login"
 						title="Password" value="" size="30" maxlength="48" />
 				</div>
-				<br /> <span class="login-box-options"> New User? <a
+				<br /> <span class="login-box-options"> New User ? <a
 					href="register.jsp" style="margin-left: 30px;">Register Here</a>
 				</span> <br /> <br /> <input style="margin-left: 100px;" type="submit"
 					value="Login" />

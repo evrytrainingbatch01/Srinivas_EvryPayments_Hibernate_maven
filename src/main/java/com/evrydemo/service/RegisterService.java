@@ -15,7 +15,15 @@ public boolean register(Customer customer){
 	 try {
 		 tx = session.getTransaction();
 		 tx.begin();
-		 session.saveOrUpdate(customer);		
+		 
+		 com.evrydemo.model.Transaction transaction = new com.evrydemo.model.Transaction();
+		 transaction.setBalance(100); //defult
+		 transaction.setCustomer(customer);
+		 session.saveOrUpdate(transaction);
+		 System.out.println("added a transaction !!!!!!!!!!!!!!!1");
+		 
+		 session.saveOrUpdate(customer);	
+		 System.out.println("saved customer !!!!!!!!!!!!!!");
 		 tx.commit();
 	 } catch (Exception e) {
 		 if (tx != null) {
