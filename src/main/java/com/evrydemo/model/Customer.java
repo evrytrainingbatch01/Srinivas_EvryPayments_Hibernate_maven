@@ -1,29 +1,29 @@
-package com.evry.model;
 
+package com.evrydemo.model;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="customer")
-public class Customer {
-	
-	@Id 
-	private Long id;
+public class Customer implements Serializable {
+    
+    @Id @GeneratedValue
+    private Long id;
     private String customerName;
     private String age;
     private String email;
     private String address;
     private String password;
     private String mobileno;
-    
+
     public Customer() {
-    	
     }
 
-	public Customer( String customerName, String age, String email, String address, String password,
-			String mobileno) {
+	public Customer(String customerName, String age, String email, String address, String password, String mobileno) {
 		super();
 		this.customerName = customerName;
 		this.age = age;
@@ -88,4 +88,6 @@ public class Customer {
 	public void setMobileno(String mobileno) {
 		this.mobileno = mobileno;
 	}
-}
+
+    
+    }

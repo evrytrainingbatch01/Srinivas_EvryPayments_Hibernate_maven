@@ -1,25 +1,25 @@
-package com.evry.service;
+package com.evrydemo.service;
+import com.evrydemo.model.*;
+import com.evrydemo.hibernateUtli.*;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import com.evry.hibernate.util.HibernateUtil;
-import com.evry.model.Customer;
 
 public class LoginService {
-	public boolean authenticateCustomer(String customerName, String password) {
-        boolean customer = authenticateCustomer(customerName, password);   
-        if(customer != equals(null) && customerName.equals(customerName) &&  password.equals(password)){
+
+    public boolean authenticateCustomer(String customerName, String password) {
+        Customer customer = getCustomerByName(customerName);          
+        if(customer!=null && customer.getCustomerName().equals(customerName) && customer.getPassword().equals(password)){
             return true;
-        }else{
+        }else{ 
             return false;
         }
     }
- 
+
     public Customer getCustomerByName(String customerName) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
@@ -40,15 +40,15 @@ public class LoginService {
         }
         return customer;
     }
-     
+    
     public List<Customer> getListOfCustomers(){
         List<Customer> list = new ArrayList<Customer>();
         Session session = HibernateUtil.getSessionFactory().openSession();
-        Transaction tx = null;       
+        Transaction tx = null;        
         try {
             tx = session.getTransaction();
             tx.begin();
-            list = session.createQuery("from Customer").list();                       
+            list = session.createQuery("from Customer").list();                        
             tx.commit();
         } catch (Exception e) {
             if (tx != null) {
